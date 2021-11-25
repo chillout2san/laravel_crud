@@ -28,26 +28,26 @@ export const Main = () => {
 
   // 要件２
   const pushTodo = () => {
-    const params = createURLSearchParams<TodoType>(
-      ['name', 'status'],
-      [todoName, WORK_IN_PROGRESS]
-    )
+    const params = createURLSearchParams<TodoType>([
+      ['name', todoName],
+      ['status', WORK_IN_PROGRESS],
+    ])
     postMethod('push_todo', params).then((_response) => fetchTodos())
   }
 
   // 要件３
   const changeStatus = (id: string, status: string) => {
     const statusParam = status === WORK_IN_PROGRESS ? DONE : WORK_IN_PROGRESS
-    const params = createURLSearchParams<TodoType>(
-      ['id', 'status'],
-      [id, statusParam]
-    )
+    const params = createURLSearchParams<TodoType>([
+      ['id', id],
+      ['status', statusParam],
+    ])
     postMethod('change_status', params).then((_response) => fetchTodos())
   }
 
   // 要件４
   const deleteTodo = async (id: string) => {
-    const params = createURLSearchParams<TodoType>(['id'], [id])
+    const params = createURLSearchParams<TodoType>([['id', id]])
     postMethod('delete_todo', params).then((_response) => fetchTodos())
   }
 

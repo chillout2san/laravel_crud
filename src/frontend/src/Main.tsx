@@ -46,7 +46,7 @@ export const Main = () => {
   }
 
   // 要件４
-  const deleteTodo = async (id: string) => {
+  const deleteTodo = (id: string) => {
     const params = createURLSearchParams<TodoType>([['id', id]])
     postMethod('delete_todo', params).then((_response) => fetchTodos())
   }

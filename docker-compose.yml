@@ -1,0 +1,24 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./src/backend:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: ./docker/mysql
+      dockerfile: Dockerfile
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass

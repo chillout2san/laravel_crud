@@ -4,16 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class TodoController extends Controller
 {
 
     public function fetchTodos() {
       header("Access-Control-Allow-Origin: *");
-      $todos = DB::table('todos')
-        ->select('id' ,'name', 'status')
-        ->get();
+      $todos = Todo::select('id' ,'name', 'status')->get();
       return json_decode($todos);
     }
 

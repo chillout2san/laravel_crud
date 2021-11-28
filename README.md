@@ -7,7 +7,7 @@ $ docker compose up -d
 ```
 
 - Laravelのパッケージインストールを行う
- - src/backendにvendorフォルダが出来たことを確認。
+    - src/backendにvendorフォルダが出来たことを確認。
 
 ```:ターミナル
 $ docker compose exec backend bash
@@ -19,7 +19,7 @@ $ docker compose exec backend bash
 ```
 
 - Reactのパッケージインストールを行う
- - src/frontendにnode_modulesフォルダが出来たことを確認。
+    - src/frontendにnode_modulesフォルダが出来たことを確認。
 
 ```:ターミナル
 $ cd src/frontend
